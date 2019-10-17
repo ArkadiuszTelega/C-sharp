@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace XD2
+{
+	class Program
+	{
+		static void Main(string[] args)
+		{
+			/*
+			 * napisz program który wyświetli duże litery alfabetu 
+			 * od A do Z i od Z do A z wykorzystaniempętli for
+			 * A, B, C, ..., Z.
+			 * Z, Y, X, ..., A. */
+
+			char znak = 'A';
+				for (znak = 'A'; znak < 'Z'; znak++)
+			{
+				Console.WriteLine(znak);
+			}
+			Console.WriteLine(znak+".");
+			for (znak = 'Z'; znak > 'A'; znak--)
+			{
+				Console.WriteLine(znak);
+			}
+			Console.WriteLine(znak + ".");
+			Console.ReadKey();
+		}
+	}
+}
