@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Tablice
+{
+	class Program
+	{
+		static void Main(string[] args)
+		{
+			// T a b l i c e //
+			//Napisz program który w 5 elementowej tablicy jednowymiarowej o nazwie colors umieszcza nazwy kolorów podane z klawiatury przez użytkownika (for)
+			/*wyświetl kolory w formacie (while) :
+			 * 
+			 * kolor1: red
+			 * kolor2: blue
+			 * ...
+			 * kolor 5:yellow
+			 */
+			string color;
+			string[] colors = new string[5];
+			for (int i = 0; i < colors.Length; if++)
+				{
+					Console.WriteLine("No daj kolor no");
+						color = colors.ReadLine();
+					colors[i] = color;
+				}
+			Console.ReadKey();
+
+		}
+	}
+}
