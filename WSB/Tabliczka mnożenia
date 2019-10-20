@@ -19,16 +19,19 @@ namespace XD2
             {
                 y = 1;
                 Console.Write("{0}\t", x);
+                
                 do
                 {
-
+                
                     razem = x * y;
                     Console.Write("{0}\t", razem);
                     y++;
+                    
                 } while (y <= 10);
+                
                 Console.WriteLine();
                 x++;
-
+                
             } while (x <= 10);
             Console.ReadKey();
 
