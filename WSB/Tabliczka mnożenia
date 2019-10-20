@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace XD2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int x, y, razem;
+            x = 1;
+            y = 1;
+            razem = 0;
+            Console.WriteLine("\t1\t2\t3\t4\t5\t6\t7\t8\t9\t10");
+            do
+            {
+                y = 1;
+                Console.Write("{0}\t", x);
+                do
+                {
+
+                    razem = x * y;
+                    Console.Write("{0}\t", razem);
+                    y++;
+                } while (y <= 10);
+                Console.WriteLine();
+                x++;
+
+            } while (x <= 10);
+            Console.ReadKey();
+
+        }
+    }
+}
