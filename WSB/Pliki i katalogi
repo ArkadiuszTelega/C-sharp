@@ -26,7 +26,7 @@ namespace pliki_i_katalogi
             //Console.WriteLine(studentDir.Attributes);   // atrybuty
             //Console.WriteLine(studentDir.CreationTime); // czas utworzenia
 
-            DirectoryInfo dataDir = new DirectoryInfo(@"C:\Users\Studen\C#Files"); // Przejście do folderu C#Files
+            DirectoryInfo dataDir = new DirectoryInfo(@"C:\Users\Student\C#Files"); // Przejście do folderu C#Files
 
             string[] customers =
             {
@@ -58,15 +58,55 @@ namespace pliki_i_katalogi
             {
                 Console.WriteLine("Error: {0}", e.ToString()); //Wyświetlaniu numeru błędu
             }
-            
-            
-                        
-                        /* Żeby pokazać zawartość pliku tekstowego w CMD, wpisz "type nazwapliku.txt" lub  */
+
+
+
+            /* Żeby pokazać zawartość pliku tekstowego w CMD, wpisz "type nazwapliku.txt" lub  */
+
+
+            DirectoryInfo mydirectoryinfo = new DirectoryInfo(@path);
+            Console.WriteLine();
+
+            FileInfo[] txtFiles = dataDir.GetFiles("*.txt", SearchOption.AllDirectories); //Wyszukiwanie plików tekstowych
+
+            Console.WriteLine("Ilość plików tekstowych: {0}", txtFiles.Length);           //Ilość plików tekstowych
+
+
+            foreach(FileInfo file in txtFiles)                                            //Wyświetlanie zawartości tablicy
+            {
+                Console.WriteLine("Nazwa: {0}", file.Name);
+            }
+
+
+
+
 
 
             Directory.CreateDirectory("\\Users\\student\\C#Files"); //Tworzenie folderu
 
+            if (Directory.Exists(path))                             //Jeśli istnieje
+            {
+                Console.Write("\n\nCzy chcesz usunąć katalog? (Y/N)");    
+                string delete = Console.ReadLine();
 
+                if (delete == "Y")                                  //Jeśli wprowadzono 1 = usuwa
+                {
+                    Directory.Delete(path, true);
+                    
+                    if (Directory.Exists(path))
+                    {
+                    Console.WriteLine("Katalog został usunięty");
+                    }
+                }
+                else                                                //Jeśli wprowadzono co innego
+                {
+                    Console.WriteLine("Nie usunięto katalogu");
+                }
+
+            };
+
+
+            
 
 
             Console.ReadKey();
