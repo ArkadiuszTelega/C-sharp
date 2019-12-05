@@ -16,17 +16,17 @@ namespace pliki_i_katalogi
             DirectoryInfo wsbDir = new DirectoryInfo("."); //katalog bieżący
             //Console.WriteLine(wsbDir.FullName);          //pokazywanie ścieżki
 
-            //DirectoryInfo studentDir = new DirectoryInfo("C:\Users\Student\Desktop");
-            //DirectoryInfo studentDir = new DirectoryInfo(@"C:\Users\Student\Desktop"); // Małpa lub "C:\\Users\Student\Desktop"
-            DirectoryInfo studentDir = new DirectoryInfo(@"C:\Users\Student");           // Małpa lub "C:\\Users\Student\Desktop"
+            //DirectoryInfo publicDir = new DirectoryInfo("C:\Users\public\Desktop");
+            //DirectoryInfo publicDir = new DirectoryInfo(@"C:\Users\public\Desktop"); // Małpa lub "C:\\Users\public\Desktop"
+            DirectoryInfo publicDir = new DirectoryInfo(@"C:\Users\public");           // Małpa lub "C:\\Users\public\Desktop"
 
-            //Console.WriteLine(studentDir.FullName);     // pełna nazwa
-              Console.WriteLine(studentDir.Name);         // tylko aktualny folder
-            //Console.WriteLine(studentDir.Parent);       // katalog nadrzędny
-            //Console.WriteLine(studentDir.Attributes);   // atrybuty
-            //Console.WriteLine(studentDir.CreationTime); // czas utworzenia
+            Console.WriteLine(publicDir.FullName);       // pełna nazwa
+            //Console.WriteLine(publicDir.Name);         // tylko aktualny folder
+            //Console.WriteLine(publicDir.Parent);       // katalog nadrzędny
+            //Console.WriteLine(publicDir.Attributes);   // atrybuty
+            //Console.WriteLine(publicDir.CreationTime); // czas utworzenia
 
-            DirectoryInfo dataDir = new DirectoryInfo(@"C:\Users\Student\C#Files"); // Przejście do folderu C#Files
+            DirectoryInfo dataDir = new DirectoryInfo(@"C:\Users\public\C#Files"); // Przejście do folderu C#Files
 
             string[] customers =
             {
@@ -38,7 +38,7 @@ namespace pliki_i_katalogi
 
 
 
-            string path = @"C:\Users\student\C#Files";
+            string path = @"C:\Users\public\C#Files";
 
             try
             {
@@ -48,20 +48,21 @@ namespace pliki_i_katalogi
                 }
                 else
                 {
-                    Directory.CreateDirectory("\\Users\\student\\C#Files"); //Tworzenie folderu
-                    string textFilePath = @"C:\Users\student\C#Files\testFile1.txt";
+                    Directory.CreateDirectory("\\Users\\public\\C#Files"); //Tworzenie folderu
+                    string textFilePath = @"C:\Users\public\C#Files\testFile1.txt";
                     File.WriteAllLines(textFilePath, customers);            // Tworzenie pliku "testFile1"
 
                     Console.WriteLine("\n Utworzono katalog: {0}", Directory.GetCreationTime(path));
                 }
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 Console.WriteLine("Error: {0}", e.ToString()); //Wyświetlaniu numeru błędu
             }
 
 
 
-            /* Żeby pokazać zawartość pliku tekstowego w CMD, wpisz "type nazwapliku.txt" lub  */
+            /* Żeby pokazać zawartość pliku tekstowego w CMD, wpisz "type nazwapliku.txt" lub  more*/
 
 
             DirectoryInfo mydirectoryinfo = new DirectoryInfo(@path);
@@ -72,7 +73,7 @@ namespace pliki_i_katalogi
             Console.WriteLine("Ilość plików tekstowych: {0}", txtFiles.Length);           //Ilość plików tekstowych
 
 
-            foreach(FileInfo file in txtFiles)                                            //Wyświetlanie zawartości tablicy
+            foreach (FileInfo file in txtFiles)                                            //Wyświetlanie zawartości tablicy
             {
                 Console.WriteLine("Nazwa: {0}", file.Name);
             }
@@ -82,20 +83,20 @@ namespace pliki_i_katalogi
 
 
 
-            Directory.CreateDirectory("\\Users\\student\\C#Files"); //Tworzenie folderu
+            Directory.CreateDirectory("\\Users\\public\\C#Files"); //Tworzenie folderu
 
             if (Directory.Exists(path))                             //Jeśli istnieje
             {
-                Console.Write("\n\nCzy chcesz usunąć katalog? (Y/N)");    
+                Console.WriteLine("\n\nCzy chcesz usunąć katalog? (Y/N)");
                 string delete = Console.ReadLine();
 
-                if (delete == "Y")                                  //Jeśli wprowadzono 1 = usuwa
+                if (delete == "Y")                                  //Jeśli wprowadzono Y = usuwa
                 {
                     Directory.Delete(path, true);
-                    
+
                     if (Directory.Exists(path))
                     {
-                    Console.WriteLine("Katalog został usunięty");
+                        Console.WriteLine("Katalog został usunięty");
                     }
                 }
                 else                                                //Jeśli wprowadzono co innego
@@ -106,7 +107,7 @@ namespace pliki_i_katalogi
             };
 
 
-            
+
 
 
             Console.ReadKey();
