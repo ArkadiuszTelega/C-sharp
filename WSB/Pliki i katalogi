@@ -1,0 +1,75 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using System.IO; //nie wiem po co to ale sie dodaje
+//using System.Text;
+
+namespace pliki_i_katalogi
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            DirectoryInfo wsbDir = new DirectoryInfo("."); //katalog bieżący
+            //Console.WriteLine(wsbDir.FullName);          //pokazywanie ścieżki
+
+            //DirectoryInfo studentDir = new DirectoryInfo("C:\Users\Student\Desktop");
+            //DirectoryInfo studentDir = new DirectoryInfo(@"C:\Users\Student\Desktop"); // Małpa lub "C:\\Users\Student\Desktop"
+            DirectoryInfo studentDir = new DirectoryInfo(@"C:\Users\Student");           // Małpa lub "C:\\Users\Student\Desktop"
+
+            //Console.WriteLine(studentDir.FullName);     // pełna nazwa
+              Console.WriteLine(studentDir.Name);         // tylko aktualny folder
+            //Console.WriteLine(studentDir.Parent);       // katalog nadrzędny
+            //Console.WriteLine(studentDir.Attributes);   // atrybuty
+            //Console.WriteLine(studentDir.CreationTime); // czas utworzenia
+
+            DirectoryInfo dataDir = new DirectoryInfo(@"C:\Users\Studen\C#Files"); // Przejście do folderu C#Files
+
+            string[] customers =
+            {
+                "Agnieszka Nowak",
+                "Anna Nowak",
+                "Tomasz Kowalski",
+            };
+
+
+
+
+            string path = @"C:\Users\student\C#Files";
+
+            try
+            {
+                if (Directory.Exists(path))
+                {
+                    Console.WriteLine("Katalog istnieje");
+                }
+                else
+                {
+                    Directory.CreateDirectory("\\Users\\student\\C#Files"); //Tworzenie folderu
+                    string textFilePath = @"C:\Users\student\C#Files\testFile1.txt";
+                    File.WriteAllLines(textFilePath, customers);            // Tworzenie pliku "testFile1"
+
+                    Console.WriteLine("\n Utworzono katalog: {0}", Directory.GetCreationTime(path));
+                }
+            }catch(Exception e)
+            {
+                Console.WriteLine("Error: {0}", e.ToString()); //Wyświetlaniu numeru błędu
+            }
+            
+            
+                        
+                        /* Żeby pokazać zawartość pliku tekstowego w CMD, wpisz "type nazwapliku.txt" lub  */
+
+
+            Directory.CreateDirectory("\\Users\\student\\C#Files"); //Tworzenie folderu
+
+
+
+
+            Console.ReadKey();
+        }
+    }
+}
