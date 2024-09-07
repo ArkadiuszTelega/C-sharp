@@ -1,0 +1,27 @@
+#!/bin/bash
+echo 			Basic calculator
+echo 		1.Addition
+echo		2.subtraction
+echo		3.multiplication
+echo		4.division
+read -r dzialanie
+
+echo First number
+read -r a
+echo Second number
+read -r b
+
+case $dzialanie in 
+1)echo Addition
+res=$((a+b))
+;;
+2) echo subtraction
+res=$((a-b))
+;;
+3) echo multiplication
+res=$((a*b))
+;;
+4) echo division
+res=$((a/b))
+esac
+echo "Result : $res"
